@@ -2,14 +2,24 @@
 <html>
   <head>
     <title>SparkJoy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
+    <header>
+      <%= render "shared/header" %>
+    </header>
     <%= yield %>
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
   </body>
 </html>
