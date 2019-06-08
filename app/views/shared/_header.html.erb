@@ -1,9 +1,14 @@
 <nav class="navbar navbar-light bg-light fixed-top">
-
     <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "Spark Joy", root_path, :style=>"color:black;" %></h5>
+  <% if user_signed_in? %>
+
+
+   <% else %>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark"><%= link_to "ログイン", new_user_session_path,
       :style=>"color:black;" %></a>
     </nav>
-    <a class="btn btn-outline-primary" href="#">はじめる</a>
+    <%= link_to "はじめる", new_user_registration_path, class: "btn btn-outline-primary" %>
+    <% end %>
+
 </nav>
