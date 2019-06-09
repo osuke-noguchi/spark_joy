@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_060003) do
+ActiveRecord::Schema.define(version: 2019_06_09_045152) do
+
+  create_table "brands", force: :cascade do |t|
+    t.integer "brand", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.text "item_image", null: false
+    t.string "size", null: false
+    t.integer "price", null: false
+    t.integer "purchase_day", null: false
+    t.string "memo", null: false
+    t.integer "user", null: false
+    t.integer "category_id", null: false
+    t.integer "brand_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false

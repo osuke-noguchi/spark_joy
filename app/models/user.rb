@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    enum gender: { 女性: 1, 男性: 2 }
+
+   has_many :items, dependent: :destroy
 end
