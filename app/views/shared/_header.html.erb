@@ -10,8 +10,8 @@
           </form>
         </div>
          <div class="col-md">
-           <%= link_to "アイテム登録", new_user_registration_path, class: "btn btn-outline-primary" %>
-
+           <%= link_to "アイテム登録", new_item_path, class: "btn btn-outline-primary" %>
+　　　　　　 <%= current_user.name %>ログイン中
          </div>
           <nav class="my-2 my-md-0 mr-md-3">
            <a class="p-2 text-dark"><%= link_to 'ログアウト', :destroy_user_session, method: :delete, :style=>"color:black;" %></a>

@@ -11,6 +11,7 @@
     </div>
      <div class="row">
        <div class="col-md-3">
+        <% @items.each do |item| %>
         <div id="sideber-fixed">
         <h2>カテゴリー</h2>
         <ul class="list-group list-group-flush" style="max-width: 200px;">
@@ -21,18 +22,25 @@
             <span class="badge badge-primary badge-pill">2</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            リスト3
+            <%= item.category.category_name %>
             <span class="badge badge-primary badge-pill">1</span>
           </li>
             </ul>
           </div>
+           <% end %>
       </div>
+
        <div class="col-md-9">
+        <% @items.each do |item| %>
+
+        <%= link_to item_path(item.id) do %>
+        <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %>
+        <p><%= item.brand %></p>
+        <% end %>
+                <% end %>
       </div>
 
      </div>
-
-
 
   </div>
 </div>
