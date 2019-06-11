@@ -1,2 +1,55 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<div class="container">
+  <div class="item-new">
+    <div class="row">
+      <div class="col-5">
+        <div class="image-field">
+          <h4>アイテム画像を登録</h4>
+          <%= form_for (@item) do |f| %>
+            <%= attachment_image_tag @item, :image, :fill, 300, 300, format: 'jpeg' %>
+            <%= f.attachment_field :image %>
+         </div>
+       </div>
+         <div class="col-1"></div>
+
+         <div class="col-6">
+          <div class="item-field">
+          <div class="field">
+          <%= f.label :category, "カテゴリー" %><br>
+           <%= f.collection_select :category_id, Category.all, :id, :category_name, class: "form-control" %>
+           </div>
+           <div class="field">
+             <%= f.label :brand, "ブランド" %>
+             <%= f.text_field :brand, :size=>"20", class: "form-control" %>
+           </div>
+           <div class="field">
+             <%= f.label :size, "サイズ" %>
+             <%= f.text_field :size, class: "form-control" %>
+           </div>
+           <div class="field">
+            <%= f.label :price, "購入金額" %>
+             <%= f.text_field :price, class: "form-control" %>
+           </div>
+           <div class="field">
+             <%= f.label :purchase_day, "購入日" %><br>
+             <%= f.date_select :purchase_day, class: "form-control",:use_month_numbers => true %>
+           </div>
+           <div class="field">
+             <%= f.label :memo, "メモ" %>
+             <%= f.text_field :memo, class: "form-control" %>
+           </div>
+           <div class="field"><br>
+            <%= f.submit '登録', class:"btn btn-success btn-block my-1" %>
+            <%= link_to "削除", item_path(@item.id), method: :delete, class:"btn btn-danger btn-block my-1", "data-confirm" => "本当に削除しますか？" %>
+
+           </div>
+         </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+
+
+
