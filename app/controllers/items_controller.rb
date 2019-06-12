@@ -1,8 +1,12 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
-     # item =Item.find_by(item_params[:category_id])
-     # item.increment(:category_id, item_params[:category_id].to_i)
+    if params[:category_id].present?
+       @items = Item.where(category_id: params[:category_id])
+     else
+       @items = Item.all
+     end
+    @counts = Item.group(:category_id).count
+    @categories = Category.all
   end
 
   def new
@@ -18,7 +22,6 @@ class ItemsController < ApplicationController
     else
         render :new
     end
-
   end
 
   def show
@@ -32,7 +35,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-       redirect_to item_path(@item.id)
+       redirect_to items_path
     else
       render :edit
     end

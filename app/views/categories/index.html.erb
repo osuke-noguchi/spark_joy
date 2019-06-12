@@ -1,24 +1,19 @@
 <div class="container">
   <div class="item-index">
+　　　<h1 class="index-text">カテゴリーのアイテム一覧</h1>
      <div class="row">
        <div class="col-md-5">
          <div class="sideber">
            <h3>カテゴリー</h3>
-           <ul class="list-group list-group-flush" style="max-width: 200px;">
-           <li class="list-group-item d-flex justify-content-between align-items-center">
-            <%= link_to "全てのアイテム", items_path %>
-            <span class="badge badge-primary badge-pill">
-              <%= Item.all.count %></span></li>
-            </ul>
-            <% @categories.each do |category| %>
+           <% @categories.each do |category| %>
            <ul class="list-group list-group-flush" style="max-width: 200px;">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-            <%= link_to category.category_name, items_path(category_id: category.id) %>
-            <span class="badge badge-primary badge-pill">
-              <%= category.items.count %></span>
+            <%#= link_to category.category_name, item_path(item.id) %>
+            <%= link_to item_path(category_id: category.id) %>
+            <span class="badge badge-primary badge-pill"><%= category.items.count %></span>
              </li>
-             <% end %>
             </ul>
+             <% end %>
           </div>
        </div>
          <div class="col-md-7">
