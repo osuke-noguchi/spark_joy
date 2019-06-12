@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
     if params[:category_id].present?
        @items = Item.where(category_id: params[:category_id])
      else
-       @items = Item.all
+       @items = Item.page(params[:page]).reverse_order
      end
     @counts = Item.group(:category_id).count
     @categories = Category.all
