@@ -114,6 +114,9 @@
 .item-index {
   margin: 70px 0 70px 0;
   width: 500px;
+  height: 600px;
+  flex-wrap: wrap;
+  float: left;
 }
 
 .sideber {
@@ -122,20 +125,33 @@
 
 
 .item-image {
+  text-align: center;
   display: flex;
-  margin: 10px;
-  text-align:center;
-  width: 300px;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: 10px 10px 10px 10px;
+}
+
+.item-image-index {
+  width: 1000px;
+  display: flex;
+  height: 500px;
+  margin-top: 60px;
 }
 
 .item-new {
-  margin: 70px 0 0 0;
-  height: 560px;
-  width: 100%;
+  margin: 80px;
+  height: 500px;
 }
 
+.image-new {
+  margin: 20px;
+
+}
 .image-field {
-  margin: 50px;
+  margin-top: 50px;
   height: 500px;
 }
 
@@ -143,6 +159,18 @@
   margin: 100px;
   width: 300px;
 }
+
+.image-new-field {
+  width: 1000px;
+}
+
+.item-new-field {
+  height: 500px;
+  width: 1000px;
+}
+
+
+
 
 .item-show {
   margin: 30px 0 100px 0;

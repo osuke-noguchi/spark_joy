@@ -2,7 +2,7 @@
   <div class="item-new">
     <div class="row">
       <div class="col-6">
-        <div class="image-field">
+        <div class="image-new">
           <h4>アイテム画像を登録</h4>
           <%= form_for (@item) do |f| %>
            <%= f.attachment_field :image %>
@@ -12,7 +12,7 @@
          </div>
        </div>
          <div class="col-6">
-           <div class="item-field">
+           <div class="item-new-field">
             <table class="attr">
               <tr>
                 <th><%= f.label :category, "カテゴリー" %></th>
@@ -47,6 +47,5 @@
           <% end %>
         </div>
       </div>
-      <%= paginate @items, class: "paginate" %>
 </div>
 

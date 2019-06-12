@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     if params[:category_id].present?
-       @items = Item.where(category_id: params[:category_id])
+       @items = Item.where(category_id: params[:category_id]).page(params[:page]).reverse_order
      else
        @items = Item.page(params[:page]).reverse_order
      end
