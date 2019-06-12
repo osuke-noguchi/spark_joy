@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="item-index">
+     <div class="row">
+       <div class="col-md-5">
+         <div class="sideber">
+           <h3>カテゴリー</h3>
+           <ul class="list-group list-group-flush" style="max-width: 200px;">
+           <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= link_to "全てのアイテム", items_path %>
+            <span class="badge badge-primary badge-pill">
+              <%= Item.all.count %></span></li>
+            </ul>
+            <% @categories.each do |category| %>
+           <ul class="list-group list-group-flush" style="max-width: 200px;">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= link_to category.category_name, items_path(category_id: category.id) %>
+            <span class="badge badge-primary badge-pill">
+              <%= category.items.count %></span>
+             </li>
+             <% end %>
+            </ul>
+          </div>
+       </div>
+         <div class="col-md-7">
+          <div class="item-image-index">
+            <div class="item-image">
+            <% @items.each do |item| %>
+             <div class="item"><%= link_to item_path(item.id) do %>
+              <%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg' %><br>
+              <% end %>
+               <%= item.brand %></div>
+               <% end %>
+            </div>
+            <%= paginate @items %>
+         </div>
+       </div>
+      </div>
+  </div>
+</div>

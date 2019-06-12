@@ -1,14 +1,28 @@
-<nav class="navbar navbar-light bg-light fixed-top">
-    <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "Spark Joy", root_path, :style=>"color:black;" %></h5>
-  <% if user_signed_in? %>
+<div class="container">
+  <div class="row">
+   <nav class="navbar navbar-light bg-light fixed-top">
+    <% if user_signed_in? %>
+    <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "Spark Joy", items_path, :style=>"color:black;" %></h5>
+    <div class="col-md">
+     <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+          </form>
+        </div>
+         <div class="col-md">
+           <%= link_to "アイテム登録", new_item_path, class: "btn btn-warning" %>
+           </div>
+           <div class="col-md">
+　　　　　　 <%= current_user.name %>ログイン中
+           </div>
+          <nav class="my-2 my-md-0 mr-md-3">
+           <a class="p-2 text-dark"><%= link_to 'ログアウト', :destroy_user_session, method: :delete, class: "btn-outline-danger" %></a>
+          </nav>
+     <% else %>
+     <h5 class="my-0 mr-md-auto font-weight-normal">SparkJoy</h5>
+      <%= link_to "はじめる", new_user_registration_path, class: "btn btn-outline-primary" %>
+      <% end %>
 
-
-   <% else %>
-    <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark"><%= link_to "ログイン", new_user_session_path,
-      :style=>"color:black;" %></a>
     </nav>
-    <%= link_to "はじめる", new_user_registration_path, class: "btn btn-outline-primary" %>
-    <% end %>
-
-</nav>
+  </div>
+</div>

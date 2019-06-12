@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="item-new">
+    <div class="row">
+      <div class="col-6">
+        <div class="image-new">
+          <h4>アイテム画像を登録</h4>
+          <%= form_for (@item) do |f| %>
+           <%= f.attachment_field :image %>
+            <% if @item.errors.any? %>
+            画像を登録してください
+            <% end %>
+         </div>
+       </div>
+         <div class="col-6">
+           <div class="item-new-field">
+            <table class="attr">
+              <tr>
+                <th><%= f.label :category, "カテゴリー" %></th>
+                <td><%= f.collection_select :category_id, Category.all, :id, :category_name %></td>
+              </tr><br>
+              <tr>
+                <th><%= f.label :brand, "ブランド" %></th>
+                <td> <%= f.text_field :brand, :placeholder => "(例) NIKE... ", :size=>"20" %></td>
+              </tr>
+              <tr>
+                <th><%= f.label :size, "サイズ" %></th>
+                <td><%= f.text_field :size, :placeholder => "(例) Mサイズ, 25cm" %></td>
+              </tr>
+              <tr>
+                <th><%= f.label :price, "購入金額  ¥" %></th>
+                <td> <%= f.text_field :price, :placeholder => "(例) 5000" %>円</td>
+              </tr>
+              <tr>
+                <th><%= f.label :purchase_day, "購入日" %></th>
+                <td><%= f.date_select :purchase_day, class: "form-control",:use_month_numbers => true %></td>
+              </tr>
+              <tr>
+                <th><%= f.label :memo, "メモ" %></th>
+                <td><%= f.text_area :memo, :placeholder => "(例) セールで購入", :maxlength => "50" %></td>
+              </tr>
+              <th></th>
+              <td>※50文字以内</td>
+            </table><br>
+             <%= f.submit '登録する', class:"btn btn-success my-1", :size=>"20" %>
+            </div>
+           </div>
+          <% end %>
+        </div>
+      </div>
+</div>
+
