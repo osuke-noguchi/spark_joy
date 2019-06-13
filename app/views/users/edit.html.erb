@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <div class="user-edit">
+       <h1>会員情報の編集</h1>
+       <div class="edit-field">
+       <%= form_for (@user) do |f| %>
+       <div class="field">
+            <%= f.label :name, "ユーザー名" %><br />
+            <%= f.text_field :name, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :age, "年齢" %><br />
+            <%= f.number_field :age, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :email, "メールアドレス" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %><br>
+          </div>
+       <%= f.submit "上記の内容を保存", class: "btn btn-success", style: "width: 150px;" %>
+       <%= link_to "キャンセル", user_path(@user), class: "btn btn-danger", style: "width: 150px;" %>
+     </div>
+   </div>
+     <% end %>
+     </div>
+     <div class="col-md-3"></div>
+   </div>
+</div>
