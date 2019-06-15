@@ -50,6 +50,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -78,6 +79,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 
 gem "refile-mini_magick"
 
-gem 'pry-byebug'
+gem "chartkick"
+
+gem 'chartable'
 
 

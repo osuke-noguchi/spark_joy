@@ -1,11 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="user-page">
-      <div class="col-md-5"></div>
-      <div class="col-md-7">
-      <h1>Users#show</h1>
-      <p>Find me in app/views/users/show.html.erb</p>
-      <%= link_to "会員情報編集", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
+    <div class="col-md-5">
+      <div class="chart">
+        <h2 class="chart-text">カテゴリー別金額集計</h2>
+        <%= pie_chart @chart %>
+      </div>
+      </div>
+    <div class="col-md-5">
+      <div class="user-page">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>登録アイテム合計</td>
+            <th><%= Item.all.count %>点</th>
+          </tr>
+          <tr>
+            <td>登録アイテム合計金額</td>
+            <th><%= number_to_currency(@item_total_price, :unit => "￥", :precision => 0) %></th>
+          </tr>
+          </tbody>
+      </table>
+        <%= link_to "会員情報編集", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
+        </div>
       </div>
     </div>
   </div>
