@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_102209) do
+ActiveRecord::Schema.define(version: 2019_06_10_022024) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_102209) do
     t.string "brand"
     t.text "image_id", null: false
     t.string "size"
-    t.integer "price"
+    t.integer "price", default: 0
     t.date "purchase_day", null: false
     t.string "memo"
     t.integer "user_id", null: false

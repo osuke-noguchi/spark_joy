@@ -15,7 +15,7 @@
            <div class="item-new-field">
             <table class="attr">
               <tr>
-                <th><%= f.label :category, "カテゴリー" %></th>
+                <th><%= f.label :category, "カテゴリー　" %></th>
                 <td><%= f.collection_select :category_id, Category.all, :id, :category_name %></td>
               </tr><br>
               <tr>
@@ -28,7 +28,7 @@
               </tr>
               <tr>
                 <th><%= f.label :price, "購入金額  ¥" %></th>
-                <td> <%= f.text_field :price, :placeholder => "(例) 5000" %>円</td>
+                <td> <%= f.text_field :price, :placeholder => "(例) 5000" %></td>
               </tr>
               <tr>
                 <th><%= f.label :purchase_day, "購入日" %></th>
@@ -41,10 +41,10 @@
               <th></th>
               <td>※50文字以内</td>
             </table><br>
-             <%= f.submit '登録する', class:"btn btn-success my-1", :size=>"20" %>
+            <%= f.submit '登録する', class:"btn btn-success btn-block" %>
+              <% end %>
             </div>
            </div>
-          <% end %>
         </div>
       </div>
 </div>

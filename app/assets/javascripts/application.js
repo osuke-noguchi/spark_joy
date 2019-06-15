@@ -18,6 +18,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require Chart.bundle
+//= require chartkick
 
 // $(document).ready(function () {
 //     $('body').html('<h1>Hello jQuery!!</h1>');

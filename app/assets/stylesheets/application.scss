@@ -166,11 +166,23 @@
 
 .item-new-field {
   height: 500px;
-  width: 1000px;
+  width: 280px;
 }
 
+.user-page {
+  height: 650px;
+  margin-top: 200px;
+}
 
+.user-edit {
+  height: 650px;
+  margin-top: 150px;
+  width: 330px;
+}
 
+.edit-field {
+  margin-top: 50px;
+}
 
 .item-show {
   margin: 30px 0 100px 0;
@@ -187,5 +199,10 @@
   width: 300px;
 }
 
+.chart {
+   margin-top: 150px;
+}
 
-
+.chart-text {
+  text-align: center;
+}

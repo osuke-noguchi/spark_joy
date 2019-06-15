@@ -14,7 +14,7 @@
           <table class="attr">
             <h4>編集内容</h4>
               <tr>
-                <th><%= f.label :category, "カテゴリー" %></th>
+                <th><%= f.label :category, "カテゴリー　" %></th>
                 <td><%= f.collection_select :category_id, Category.all, :id, :category_name %></td>
               </tr><br>
               <tr>
@@ -26,7 +26,7 @@
                 <td><%= f.text_field :size, :placeholder => "(例) Mサイズ, 25cm" %></td>
               </tr>
               <tr>
-                <th><%= f.label :price, "購入金額  ¥" %></th>
+                <th><%= f.label :price, "購入金額　¥" %></th>
                 <td> <%= f.text_field :price, :placeholder => "(例) 5000" %>円</td>
               </tr>
               <tr>
