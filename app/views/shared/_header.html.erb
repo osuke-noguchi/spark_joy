@@ -7,7 +7,7 @@
          <%= form_tag('/items', method: 'get') do %>
           <%= label_tag :item_key, "" %>
           <%= text_field_tag :item_key %>
-          <%= submit_tag('検索') %><%= link_to 'Clear', items_path %>
+          <%= submit_tag('Go!') %><%= link_to 'Clear', items_path %>
         <% end %>
         </div>
          <div class="col-md">
@@ -23,7 +23,6 @@
      <h5 class="my-0 mr-md-auto font-weight-normal">SparkJoy</h5>
       <%= link_to "はじめる", new_user_registration_path, class: "btn btn-outline-primary" %>
       <% end %>
-
     </nav>
   </div>
 </div>

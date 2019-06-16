@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: '会員情報を更新しました'
+      redirect_to @user, flash[:notice] = '会員情報を更新しました'
     else
       render :edit
     end
@@ -28,6 +28,16 @@ class UsersController < ApplicationController
 
 
   def destroy
+    @items = Item.find_by(user_id: params[:id])
+    flash[:notice] = "ユーザーを削除しました！"
+    if @items.nil?
+      @user.destroy
+      redirect_to("/")
+    else
+      @items.destroy
+      @user.destroy
+      redirect_to("/")
+    end
   end
 
   private

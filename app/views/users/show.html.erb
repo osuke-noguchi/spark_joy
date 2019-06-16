@@ -8,16 +8,16 @@
       </div>
     <div class="col-md-5">
       <div class="user-page">
-        <table class="table">
+        <table class="table" frame="void">
           <tbody>
           <tr>
-            <td>登録アイテム合計</td>
-            <th><%= Item.all.count %>点</th>
+            <th>登録アイテム合計</th>
+            <td><%= Item.all.count %>点</td>
           </tr>
           <tr>
-            <td>登録アイテム合計金額</td>
-            <th><%= number_to_currency(@item_total_price, :unit => "￥", :precision => 0) %></th>
-          </tr>
+            <th>登録アイテム合計金額</th>
+            <td><%= number_to_currency(@item_total_price, :unit => "￥", :precision => 0) %></td>
+          </tr >
           </tbody>
       </table>
         <%= link_to "会員情報編集", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
