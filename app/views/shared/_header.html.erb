@@ -7,7 +7,7 @@
          <%= form_tag('/items', method: 'get') do %>
           <%= label_tag :item_key, "" %>
           <%= text_field_tag :item_key %>
-          <%= submit_tag('検索') %> <%= link_to 'Clear', items_path %>
+          <%= submit_tag('検索') %><%= link_to 'Clear', items_path %>
         <% end %>
         </div>
          <div class="col-md">
