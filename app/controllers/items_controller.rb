@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:update, :show, :edit, :destroy]
+
   def index
     if params[:category_id].present?
        @items = Item.where(category_id: params[:category_id]).page(params[:page]).reverse_order
@@ -7,6 +9,10 @@ class ItemsController < ApplicationController
      end
     @counts = Item.group(:category_id).count
     @categories = Category.all
+
+    if params[:item_key]
+      @items = Item.where('brand LIKE ?', "%#{params[:item_key]}%").page(params[:page]).reverse_order
+    end
   end
 
   def new
@@ -25,15 +31,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
        redirect_to items_path
     else
@@ -42,12 +45,17 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path
   end
 
+
   private
+
+  def set_item
+     @item = Item.find(params[:id])
+  end
+
   def item_params
      params.require(:item).permit(:category_id,
                                   :brand,

@@ -6,6 +6,7 @@
           <h4>アイテム画像を登録</h4>
           <%= form_for (@item) do |f| %>
            <%= f.attachment_field :image %>
+           <p><%= f.check_box :remove_image %>画像を削除する</p>
             <% if @item.errors.any? %>
             画像を登録してください
             <% end %>
