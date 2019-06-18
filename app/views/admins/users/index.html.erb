@@ -1,14 +1,12 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">会社名</a>
-    </nav>
+<%= render "admins/shared/navber" %>
 
-<div class="container">
+<div class="admin-page">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
-    <div class="admin-page">
-      <h1>ユーザー一覧ページ</h1>
-      <p>Find me in app/views/admins/admins/index.html.erb</p>
-　　　<table class="table table-striped table-sm user-table">
+<%= render "admins/shared/sidebar" %>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<h1>ユーザー一覧ページ</h1><h2>会員登録数：<%= User.count %>名</h2>
+<table class="table table-striped table-sm user-table">
       <thead>
         <tr>
           <th>会員番号</th>
@@ -32,13 +30,15 @@
             <td>
               <%= link_to '詳細', admins_user_path(user),
                class:"btn btn-outline-secondary"%>
+               <%= link_to '削除', admins_user_path(user), method: :delete,
+           data: { confirm: '本当に削除しますか?' }, class: "btn btn-outline-danger" %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    </div>
-    </div>
-    </div>
+    <%= paginate @users %>
+  </main>
+  </div>
 </div>
-
+</div>
