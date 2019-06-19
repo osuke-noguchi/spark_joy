@@ -5,7 +5,7 @@
         <h2 class="chart-text">カテゴリー別金額集計</h2>
         <%= pie_chart @chart %>
       </div>
-      </div>
+    </div>
     <div class="col-md-5">
       <div class="user-page">
         <table class="table" frame="void">
@@ -25,25 +25,27 @@
       </div>
     </div>
     <div class="row">
-    <table class="table" frame="void">
-          <tbody>
-            <tr>
-              <th>カテゴリー名</th>
-              <th>アイテム登録数</th>
-              <th>合計価格</th>
-            </tr>
+      <h2>登録アイテム内訳</h2>
+    <table class="table">
+      <tbody>
+          <tr>
+            <th>カテゴリー名</th>
+            <th>アイテム登録数</th>
+            <th>合計価格</th>
+          </tr>
           <tr>
             <% Category.all.each do |category| %>
             <td><%= category.category_name %></td>
-            <td><%= Item.where(category_id: category.id, user_id: @user.id).count %></td>
+            <td><%= Item.where(category_id: category.id, user_id: @user.id).count %>点</td>
             <td><%= number_to_currency(Item.where(category_id: category.id, user_id: @user.id).sum(:price), :unit => "￥", :precision => 0) %></td>
           </tr><% end %>
           <tr>
             <th></th>
             <th></th>
-              <td>合計金額：<%= number_to_currency(Item.where(user_id: @user.id).sum(:price), :unit => "￥", :precision => 0) %></td>
-            </tr>
-          </tbody>
+            <td>合計金額：<%= number_to_currency(Item.where(user_id: @user.id).sum(:price), :unit => "￥", :precision => 0) %>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

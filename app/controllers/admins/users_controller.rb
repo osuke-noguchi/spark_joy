@@ -1,9 +1,16 @@
 class Admins::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-
   def index
-    @users = User.all.page(params[:page])
+      @users = User.all.page(params[:page])
+
+
+
+    if params[:search]
+       @users = User.where('name LIKE ? OR age LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").page(params[:page]).reverse_order
+    else
+      User.all
+    end
   end
 
   def show
@@ -12,7 +19,6 @@ class Admins::UsersController < ApplicationController
     else
       puts "男性"
     end
-
   end
 
   def edit
@@ -27,7 +33,6 @@ class Admins::UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end

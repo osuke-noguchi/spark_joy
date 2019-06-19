@@ -10,11 +10,7 @@ class ItemsController < ApplicationController
      else
        @items = @user.items.page(params[:page]).reverse_order
      end
-    # @counts = Item.group(:category_id).count
-    #   Category.all.each do |category|
-    #      @categories = Item.where(user_id: current_user.id,
-    #                               category_id: category.id)
-      # end
+
     if params[:item_key]
       @items = @user.items.where('brand LIKE ?', "%#{params[:item_key]}%").page(params[:page]).reverse_order
     end
@@ -29,7 +25,8 @@ class ItemsController < ApplicationController
     @item.user_id = current_user.id
     # binding.pry
     if @item.save
-      redirect_to items_path, notice: "アイテムを登録しました。"
+      flash[:success] = 'アイテムを登録しました。'
+      redirect_to items_path
     else
         render :new
     end
@@ -43,7 +40,8 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-       redirect_to items_path, notice: "アイテムを情報を更新しました。"
+      flash[:success] = 'アイテムを情報を更新しました。'
+       redirect_to items_path
     else
       render :edit
     end

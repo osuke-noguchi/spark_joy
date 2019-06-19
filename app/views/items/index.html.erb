@@ -15,6 +15,7 @@
   </div>
     </div>
      <% else %>
+      <h3 class="row alert alert-primary" role="alert"><%= flash[:success] %></h3>
      <div class="row">
        <div class="col-md-5">
         <%= render "items/categories" %>

@@ -12,7 +12,6 @@ class UsersController < ApplicationController
    #カテゴリー別に金額を割り当てる
     @chart = []
     @items.group(:category).sum(:price).each do |item|
-      p item
       @chart <<  [item[0][:category_name], item[1]]
     end
   end
