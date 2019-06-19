@@ -5,7 +5,6 @@ class Admins::AdminsController < ApplicationController
     @man = User.where(gender: 2).count
     @woman = User.where(gender: 1).count
     @chart = {"男性" => User.where(gender: 2).count, "女性" => User.where(gender: 1).count}
-    @categorisechart = Item.where
    end
 
    def show

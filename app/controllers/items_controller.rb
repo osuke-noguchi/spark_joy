@@ -2,16 +2,21 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :show, :edit, :destroy]
 
   def index
+    @user = current_user
+    @items = current_user.items
+    @counts = @items.count
     if params[:category_id].present?
-       @items = Item.where(category_id: params[:category_id]).page(params[:page]).reverse_order
+       @items = Item.where(user_id: @user.id, category_id: params[:category_id]).page(params[:page]).reverse_order
      else
-       @items = Item.page(params[:page]).reverse_order
+       @items = @user.items.page(params[:page]).reverse_order
      end
-    @counts = Item.group(:category_id).count
-    @categories = Category.all
-
+    # @counts = Item.group(:category_id).count
+    #   Category.all.each do |category|
+    #      @categories = Item.where(user_id: current_user.id,
+    #                               category_id: category.id)
+      # end
     if params[:item_key]
-      @items = Item.where('brand LIKE ?', "%#{params[:item_key]}%").page(params[:page]).reverse_order
+      @items = @user.items.where('brand LIKE ?', "%#{params[:item_key]}%").page(params[:page]).reverse_order
     end
   end
 
@@ -24,7 +29,7 @@ class ItemsController < ApplicationController
     @item.user_id = current_user.id
     # binding.pry
     if @item.save
-      redirect_to items_path
+      redirect_to items_path, notice: "アイテムを登録しました。"
     else
         render :new
     end
@@ -38,7 +43,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-       redirect_to items_path
+       redirect_to items_path, notice: "アイテムを情報を更新しました。"
     else
       render :edit
     end

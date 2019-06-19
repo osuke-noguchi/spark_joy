@@ -34,20 +34,19 @@
           <tbody>
             <tr>
               <th>カテゴリー名</th>
-              <th>登録数</th>
-              <th>商品価格</th>
+              <th>アイテム登録数</th>
+              <th>合計価格</th>
             </tr>
           <tr>
             <% Category.all.each do |category| %>
-            <th><%= category.category_name %></th>
-            <th></th>
-            <th></th>
-          </tr>
-           <% end %>
+            <td><%= category.category_name %></td>
+            <td><%= Item.where(category_id: category.id, user_id: @user.id).count %></td>
+            <td><%= number_to_currency(Item.where(category_id: category.id, user_id: @user.id).sum(:price), :unit => "￥", :precision => 0) %></td>
+          </tr><% end %>
           <tr>
-              <th></th>
-              <th>合計金額：¥</th>
-
+            <th></th>
+            <th></th>
+              <td>合計金額：<%= number_to_currency(Item.where(user_id: @user.id).sum(:price), :unit => "￥", :precision => 0) %></td>
             </tr>
           </tbody>
       </table>

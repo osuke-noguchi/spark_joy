@@ -12,7 +12,7 @@
           <tbody>
           <tr>
             <th>登録アイテム合計</th>
-            <td><%= Item.all.count %>点</td>
+            <td><%= @items.count %>点</td>
           </tr>
           <tr>
             <th>登録アイテム合計金額</th>
@@ -23,6 +23,28 @@
         <%= link_to "会員情報編集", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
         </div>
       </div>
+    </div>
+    <div class="row">
+    <table class="table" frame="void">
+          <tbody>
+            <tr>
+              <th>カテゴリー名</th>
+              <th>アイテム登録数</th>
+              <th>合計価格</th>
+            </tr>
+          <tr>
+            <% Category.all.each do |category| %>
+            <td><%= category.category_name %></td>
+            <td><%= Item.where(category_id: category.id, user_id: @user.id).count %></td>
+            <td><%= number_to_currency(Item.where(category_id: category.id, user_id: @user.id).sum(:price), :unit => "￥", :precision => 0) %></td>
+          </tr><% end %>
+          <tr>
+            <th></th>
+            <th></th>
+              <td>合計金額：<%= number_to_currency(Item.where(user_id: @user.id).sum(:price), :unit => "￥", :precision => 0) %></td>
+            </tr>
+          </tbody>
+      </table>
     </div>
   </div>
 </div>

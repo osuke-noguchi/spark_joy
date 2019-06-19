@@ -1,5 +1,42 @@
+<div class="container">
+  <div class="item-index">
+    <% if @items.empty? %>
+    <div class="row">
+    <div class="col-md-5">
+    <%= render "items/categories" %>
+  </div>
+  <div class="col-md-7">
+    <div class="item-image-index">
+    <div class="item-image">
+     <h1 class="message">アイテムが登録されていません</h1>
+  </div>
+</div>
 
-<h1>カテゴリー別ページ</h1>
-<% @category.items.each do |item| %>
-<%= item.category %>
-<% end %>
+  </div>
+    </div>
+     <% else %>
+     <div class="row">
+       <div class="col-md-5">
+        <%= render "items/categories" %>
+       </div>
+         <div class="col-md-7">
+          <div class="item-image-index">
+            <div class="item-image">
+            <% @items.each do |item| %>
+             <div class="item">
+              <%= link_to item_path(item) do %>
+              <%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg' %><br>
+              <% end %>
+              <%= item.brand %>
+                   </div>
+                   <% end %>
+                <div class="pagenate">
+                <%= paginate @items %>
+                </div>
+            </div>
+         </div>
+       </div>
+      </div>
+      <% end %>
+  </div>
+</div>

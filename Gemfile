@@ -72,8 +72,6 @@ gem 'devise'
 
 gem 'kaminari', '~> 1.1.1'
 
-gem 'paranoia'
-
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 
 gem "refile-mini_magick"

@@ -3,10 +3,15 @@ class Admins::UsersController < ApplicationController
 
 
   def index
-    @users = User.all.page(params[:page]).reverse_order
+    @users = User.all.page(params[:page])
   end
 
   def show
+    if @user[gender: 1] == 1
+      puts "女性"
+    else
+      puts "男性"
+    end
 
   end
 
