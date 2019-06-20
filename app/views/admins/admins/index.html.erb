@@ -1,24 +1,30 @@
 <%= render "admins/shared/navber" %>
 <div class="admin-page">
-<div class="container-fluid">
-  <div class="row">
-<%= render "admins/shared/sidebar" %>
-  <div class="col-md-4">
-<h3>会員登録数：<%= User.count %>名/男女比</h3>
-<%= pie_chart @gender_ratio %>
-<p>女性登録者数：<%= @woman %>人---------------
-   男性登録者数：<%= @man %>人</p>
-</div>
-
-<div class="col-md-4">
-
-
-</div>
-  <div>
-
-
+  <div class="container-fluid">
+    <div class="row">
+      <%= render "admins/shared/sidebar" %>
+    <div class="col-md-4 col-5">
+      <div class="card" style="width: 22rem;">
+        <div class="card-body">
+          <h3>会員登録数：<%= User.count %>名/男女比</h3>
+          <%= pie_chart @gender_ratio %>
+          <p>女性登録者数：<%= @woman %>人<br>
+             男性登録者数：<%= @man %>人</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-5">
+      <div class="card" style="width: 22rem;">
+        <div class="card-body">
+         <h3>会員登録者平均年齢</h3>
+            <p>女性登録者数：<%= @woman_age_average %>歳<br>
+               男性登録者数：<%= @man_age_average %>歳</p>
+            <h3>本日の新規登録ユーザー</h3>
+            <h5><%= @uer_new %>人</h5>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
-</div>
-</div>
 </div>
 

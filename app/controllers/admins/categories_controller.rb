@@ -1,5 +1,6 @@
 class Admins::CategoriesController < ApplicationController
-  def index
+ before_action :authenticate_admin!
+ def index
      @categories = Category.all
      @category = Category.new
   end

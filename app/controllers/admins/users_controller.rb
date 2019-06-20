@@ -1,11 +1,9 @@
 class Admins::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   def index
       @users = User.all.page(params[:page])
-
-
-
     if params[:search]
        @users = User.where('name LIKE ? OR age LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").page(params[:page]).reverse_order
     else
@@ -14,11 +12,6 @@ class Admins::UsersController < ApplicationController
   end
 
   def show
-    if @user[gender: 1] == 1
-      puts "女性"
-    else
-      puts "男性"
-    end
   end
 
   def edit

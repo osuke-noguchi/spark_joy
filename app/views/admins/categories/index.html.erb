@@ -11,7 +11,7 @@
         <table class="col-md-5 table table-striped table-sm user-table">
           <thead>
             <tr>
-              <th>番号</th>
+              <th>番号(id)</th>
               <th>カテゴリー名</th>
               <th></th>
             </tr>
@@ -19,7 +19,7 @@
            <% @categories.each_with_index do |category, i| %>
           <tbody>
             <tr>
-              <td><%= "id:#{i + 1}" %></td>
+              <td><%= "#{i + 1}" %></td>
               <td><%= category.category_name %></td>
               <td><%= link_to '削除', admins_category_path(category.id), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
             </tr>

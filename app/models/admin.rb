@@ -11,4 +11,5 @@ class Admin < ApplicationRecord
         USer.all
       end
   end
+
 end

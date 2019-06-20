@@ -12,6 +12,7 @@
           <th>年齢</th>
           <th>性別</th>
           <th>登録アイテム数</th>
+          <th>メールアドレス</th>
           <th>登録日</th>
           <th></th>
         </tr>
@@ -22,9 +23,10 @@
             <td><%= @user.name %></td>
             <td><%= @user.age %></td>
             <td><%= @user.gender %></td>
-            <td><%= @user.items.count %></td>
+            <td><%= @user.items.count %>点</td>
+            <td><%= @user.email %></td>
             <td><%= @user.created_at %></td>
-            <td><%= link_to '削除', admins_user_path(@user), method: :delete,
+            <td><%= link_to '強制退会', admins_user_path(@user), method: :delete,
            data: { confirm: '本当に削除しますか?' }, class: "btn btn-outline-danger" %></td>
          </tr>
             </tbody>
@@ -38,7 +40,7 @@
             <tr>
               <th>カテゴリー名</th>
               <th>アイテム登録数</th>
-              <th>合計価格</th>
+              <th>カテゴリー別合計価格</th>
             </tr>
           <tr>
             <% Category.all.each do |category| %>

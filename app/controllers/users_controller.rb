@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:update, :show, :edit, :destroy]
+  before_action :ensure_correct_user
 
   def show
     @items = @user.items
@@ -49,4 +50,11 @@ class UsersController < ApplicationController
     def user_params
        params.require(:user).permit(:name, :email, :age)
     end
+
+    def ensure_correct_user
+    if current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to books_path
+    end
+  end
 end
