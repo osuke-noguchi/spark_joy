@@ -84,3 +84,5 @@ gem 'faker'
 
 gem "faker-japanese"
 
+gem 'groupdate'
+

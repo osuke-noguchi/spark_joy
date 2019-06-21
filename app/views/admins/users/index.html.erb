@@ -6,11 +6,11 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 <h1>ユーザー一覧ページ</h1><h2>会員登録数：<%= User.count %>名</h2>
   <%= form_tag admins_users_path, :method => 'get' do %>
-  <%= text_field_tag :search, params[:search], placeholder: "ex)name, age" %>
-  <%= submit_tag 'Search', :name => nil %><%= link_to 'Clear', admins_users_path %>
+  <%= text_field_tag :search, params[:search], placeholder: "例)ユーザー名、年齢" %>
+  <%= submit_tag '検索', :name => nil %><%= link_to 'クリア', admins_users_path %>
   <% end %>
-<table class="table table-striped table-sm user-table">
-      <thead>
+<table class="table table-striped table-sm table-hover user-table">
+      <thead class="table-danger">
         <tr>
           <th>会員番号</th>
           <th>ユーザー名</th>

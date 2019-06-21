@@ -119,6 +119,8 @@ GEM
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (4.1.2)
+      activesupport (>= 4.2)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.6.0)
@@ -307,6 +309,7 @@ DEPENDENCIES
   devise
   faker
   faker-japanese
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.1.1)

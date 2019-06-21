@@ -26,13 +26,15 @@
     </div>
     <div class="row">
       <h2>登録アイテム内訳</h2>
-    <table class="table">
+    <table class="table table-hover">
       <tbody>
+        <thead class="table-info">
           <tr>
             <th>カテゴリー名</th>
             <th>アイテム登録数</th>
             <th>合計価格</th>
           </tr>
+        </thead>
           <tr>
             <% Category.all.each do |category| %>
             <td><%= category.category_name %></td>
