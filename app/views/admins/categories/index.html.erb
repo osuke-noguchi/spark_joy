@@ -21,6 +21,7 @@
             <tr>
               <td><%= "#{i + 1}" %></td>
               <td><%= category.category_name %></td>
+              <td><%= link_to '編集', edit_admins_category_path(category.id) %></td>
               <td><%= link_to '削除', admins_category_path(category.id), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
             </tr>
           </tbody>
