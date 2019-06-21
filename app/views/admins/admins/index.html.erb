@@ -1,0 +1,38 @@
+<%= render "admins/shared/navber" %>
+  <div class="admin-page">
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "admins/shared/sidebar" %>
+      <div class="col-md-3 col-12">
+        <div class="card" style="width: 22rem;">
+          <div class="card-body">
+            <h3 style="text-align :center;">会員登録数<br><%= User.count %>名/男女比</h3>
+            <%= pie_chart @gender_ratio %>
+            <p style="text-align :center;">女性登録者数：<%= @woman %>人<br>
+               男性登録者数：<%= @man %>人</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="card" style="width: 22rem;">
+          <div class="card-body">
+              <h3 style="text-align :center;">新規ユーザー/日</h3>
+             <%= line_chart User.group_by_day(:created_at).count %>
+        </div>
+      </div>
+      </div>
+        <div class="col-md-3 col-12">
+          <div class="card" style="width: 22rem;">
+            <div class="card-body">
+              <h3>会員登録者平均年齢</h3>
+              <p style="text-align :right;">女性登録者数：<%= @woman_age_average %>歳<br>
+                 男性登録者数：<%= @man_age_average %>歳</p>
+              <h3>本日の新規登録ユーザー</h3>
+              <h5 style="text-align :right;"><%= @uer_new %>人</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

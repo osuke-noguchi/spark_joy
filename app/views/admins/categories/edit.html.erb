@@ -1,0 +1,14 @@
+<%= render "admins/shared/navber" %>
+<div class="container-fluid">
+      <%= render "admins/shared/sidebar" %>
+      <h1>会員情報の編集</h1>
+      <div class="edit-field">
+           <%= form_for @category, :url => admins_category_path do |f| %>
+           <div class="field">
+            <%= f.label :category_name, "カテゴリー名" %><br />
+            <%= f.text_field :category_name, autofocus: true, class: "form-control", style: "width: 300px;" %>
+            </div>
+           <%= f.submit "上記の内容を保存", class: "btn btn-success", style: "width: 150px;" %>
+    <% end %>
+    </div>
+</div>

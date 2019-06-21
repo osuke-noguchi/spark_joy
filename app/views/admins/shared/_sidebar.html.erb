@@ -1,0 +1,16 @@
+<nav class="col-md-2 col-12 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to "ダッシュボード", admins_root_path %>
+      </li>
+      <li class="nav-item">
+        <span data-feather="users"></span>
+       <%= link_to "ユーザー 一覧", admins_users_path %>
+      </li>
+       <li class="nav-item">
+       <%= link_to "カテゴリー", admins_categories_path %>
+      </li>
+    </ul>
+  </div>
+</nav>

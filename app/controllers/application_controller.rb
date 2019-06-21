@@ -14,10 +14,15 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-       items_path
+    case resource
+        when Admin
+           admins_root_path
+         when User
+            items_path
+        end
   end
      # ログアウト後に遷移するページ
   def after_sign_out_path_for(resource_or_root)
-    new_user_session_path
+       root_path
   end
 end

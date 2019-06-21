@@ -1,0 +1,32 @@
+<%= render "admins/shared/navber" %>
+<div class="admin-page">
+  <div class="container-fluid">
+    <div class="row">
+      <%= render "admins/shared/sidebar" %>
+      <main role="main" class="col-md-5 ml-sm-auto col-lg-10 px-4">
+       <h1>登録カテゴリー一覧</h1>
+       <div class="col-sm-5">
+       <%= render "admins/categories/new" %>
+     </div>
+        <table class="col-md-5 table table-striped table-sm user-table">
+          <thead>
+            <tr>
+              <th>番号(id)</th>
+              <th>カテゴリー名</th>
+              <th></th>
+            </tr>
+          </thead>
+           <% @categories.each_with_index do |category, i| %>
+          <tbody>
+            <tr>
+              <td><%= "#{i + 1}" %></td>
+              <td><%= category.category_name %></td>
+              <td><%= link_to '編集', edit_admins_category_path(category.id) %></td>
+              <td><%= link_to '削除', admins_category_path(category.id), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+      </main>
+   </div>
+</div>

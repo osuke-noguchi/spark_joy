@@ -1,0 +1,5 @@
+<%= form_for @category,:url => admins_categories_path do |f| %>
+<%= f.label :category_name, "カテゴリー名" %>
+<%= f.text_field :category_name, class: "form-control" %><%= f.submit '登録', class:"btn btn-success" %>
+<% end %>
+
