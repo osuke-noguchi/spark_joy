@@ -4,10 +4,9 @@
       <div class="col-5">
         <div class="image-field">
           <h4>アイテム画像</h4>
-          <%= form_for (@item) do |f| %>
+           <%= form_for (@item) do |f| %>
             <%= attachment_image_tag @item, :image, :fill, 300, 300, format: 'jpeg', id: :img_prev %>
             <%= f.attachment_field :image %>
-
             <script type="text/javascript">
               $(function() {
                function readURL(input) {
@@ -24,10 +23,10 @@
                });
               });
               </script>
-         </div>
-       </div>
-         <div class="col-7">
-          <div class="item-edit">
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="item-edit">
           <table class="attr">
             <h4>編集内容</h4>
               <tr>
@@ -56,17 +55,16 @@
               </tr>
               <th></th>
               <td>※50文字以内</td>
-            </table><br>
+          </table><br>
             <%= f.submit '登録', class:"btn btn-success btn-block" %>
             <%= link_to "削除", item_path(@item.id), method: :delete, class:"btn btn-danger btn-block", "data-confirm" => "本当に削除しますか？" %>
-           </div>
-         </div>
-          <% end %>
         </div>
-
       </div>
+      <% end %>
     </div>
+  </div>
 </div>
+
 
 
 

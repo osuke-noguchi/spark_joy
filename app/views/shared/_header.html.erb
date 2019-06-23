@@ -2,22 +2,22 @@
   <div class="row">
    <nav class="navbar navbar-light bg-light fixed-top">
     <% if user_signed_in? %>
-    <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "Spark Joy", items_path, :style=>"color:black;" %></h5>
-    <div class="col-md">
+    <h5 class=" col-1 col-md-1 my-0 mr-md-auto font-weight-normal"><%= link_to "Spark Joy", items_path, :style=>"color:black;" %></h5>
+    <div class="col-3 col-md-3">
          <%= form_tag('/items', method: 'get') do %>
           <%= label_tag :item_key, "" %>
           <%= text_field_tag :item_key %>
           <%= submit_tag('Go!') %><%= link_to 'Clear', items_path %>
         <% end %>
         </div>
-         <div class="col-md">
+         <div class="col-2 col-md-2">
            <%= link_to "アイテム登録", new_item_path, data: {"turbolinks" => false}, class: "btn btn-warning" %>
            </div>
-           <div class="col-md">
-　　　　　　 <%= link_to current_user.name, user_path(current_user.id), class: "fas fa-user-circle" %>さん
-           </div>
-          <nav class="my-2 my-md-0 mr-md-3">
-           <a class="p-2 text-dark"><%= link_to 'ログアウト', :destroy_user_session, method: :delete, class: "btn-outline-danger" %></a>
+           <nav class="col-3 col-md-3">
+　　　　　　 <%= link_to current_user.name, user_path(current_user.id) %>さん
+           </nav>
+          <nav class="col-2 col-md-2">
+           <%= link_to 'ログアウト', :destroy_user_session, method: :delete, class: "btn-outline-danger" %>
           </nav>
      <% else %>
      <h5 class="my-0 mr-md-auto font-weight-normal">SparkJoy</h5>

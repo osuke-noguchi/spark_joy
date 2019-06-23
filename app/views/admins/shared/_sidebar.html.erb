@@ -2,13 +2,15 @@
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
       <li class="nav-item">
+        <i class="fas fa-chart-line"></i>
         <%= link_to "ダッシュボード", admins_root_path %>
       </li>
       <li class="nav-item">
-        <span data-feather="users"></span>
-       <%= link_to "ユーザー 一覧", admins_users_path %>
+        <i class="fas fa-users"></i>
+       <%= link_to "ユーザー", admins_users_path %>
       </li>
        <li class="nav-item">
+       <i class="fas fa-list"></i>
        <%= link_to "カテゴリー", admins_categories_path %>
       </li>
     </ul>
