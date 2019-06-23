@@ -2,24 +2,23 @@
   <div class="item-index">
     <% if @items.empty? %>
     <div class="row">
-    <div class="col-md-5">
-    <%= render "items/categories" %>
-  </div>
-  <div class="col-md-7">
-    <div class="item-image-index">
-    <div class="item-image">
-     <h1 class="message">アイテムが登録されていません</h1>
-  </div>
-</div>
-
-  </div>
+      <div class="col-md-5">
+       <%= render "items/categories" %>
+      </div>
+        <div class="col-md-7">
+          <div class="item-image-index">
+            <div class="item-image">
+             <h1 class="message">アイテムが登録されていません</h1>
+            </div>
+          </div>
+        </div>
     </div>
      <% else %>
-     <div class="row">
-       <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-5">
         <%= render "items/categories" %>
-       </div>
-         <div class="col-md-7">
+      </div>
+        <div class="col-md-7">
           <div class="item-image-index">
             <div class="item-image">
             <% @items.each do |item| %>
@@ -28,15 +27,15 @@
               <%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg' %><br>
               <% end %>
               <%= item.brand %>
-                   </div>
+              </div>
                    <% end %>
                 <div class="pagenate">
-                <%= paginate @items %>
+                  <%= paginate @items %>
                 </div>
             </div>
-         </div>
-       </div>
-      </div>
-      <% end %>
+          </div>
+        </div>
+    </div>
+   <% end %>
   </div>
 </div>
