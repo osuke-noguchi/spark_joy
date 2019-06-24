@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:update, :show, :edit, :destroy]
   before_action :ensure_correct_user
+  before_action :authenticate_user!
 
   def show
     @items = @user.items
@@ -32,7 +33,6 @@ class UsersController < ApplicationController
 
   def destroy
     @items = Item.find_by(user_id: params[:id])
-    flash[:notice] = "ユーザーを削除しました！"
     if @items.nil?
       @user.destroy
       redirect_to("/")
@@ -54,8 +54,7 @@ class UsersController < ApplicationController
 
     def ensure_correct_user
     if current_user.id != params[:id].to_i
-      flash[:notice] = "権限がありません"
-      redirect_to books_path
+       redirect_to root_path
     end
   end
 end
