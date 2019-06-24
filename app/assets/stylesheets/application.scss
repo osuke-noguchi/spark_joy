@@ -16,7 +16,9 @@
   width: 300px;
   margin: 0 auto;
 }
-
+.about {
+  text-align: center;
+}
 
 .footer {
   width: 100%;
@@ -45,6 +47,12 @@
   font-size: 60px;
 }
 
+.fa-angle-double-down {
+  font-size: 70px;
+  color: #ff8c00;
+  margin: 50px;
+
+}
 .fa-user {
   font-size: 70px;
   color: #A4C639 ;
@@ -83,12 +91,13 @@
   background-image: url("closet1.jpg");
   background-size: cover;
   background-position: center;
-  height: 560px;
+  height: 660px;
+  margin-top: 70px;
 }
 
 .body {
   padding-top: 50px;
-  height: 560px;
+  height: 660px;
   width: 100%;
   margin-top: 70px;
   margin-bottom: 30px;
@@ -102,16 +111,21 @@
   margin-top: 20px;
 }
 
+.signup-form {
+  width: 450px;
+  margin: 0 auto;
+}
+
 .signup-body {
   background-image: url("closet2.jpg");
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 700px;
 }
 
 .body2 {
   padding-top: 50px;
-  height: 600px;
+  height: 650px;
   width: 100%;
   background-color: rgba(255,255,255,0.7);
 }
@@ -150,7 +164,7 @@
 
 .item-new {
   margin: 80px;
-  height: 500px;
+  height: 560px;
 }
 
 .image-new {
@@ -193,7 +207,7 @@
 
 .item-show {
   margin: 30px 0 100px 0;
-  height: 500px;
+  height: 590px;
   width: 100%;
 }
 

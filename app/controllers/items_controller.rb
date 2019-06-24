@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :show, :edit, :destroy]
+  before_action :authenticate_user!
 
   def index
     @user = current_user
@@ -25,7 +26,7 @@ class ItemsController < ApplicationController
     @item.user_id = current_user.id
     # binding.pry
     if @item.save
-      flash.now[:success] = 'アイテムを登録しました。'
+      flash[:notice] = 'アイテムを登録しました。'
       redirect_to items_path
     else
         render :new
@@ -40,7 +41,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-       flash.now[:success] = 'アイテムを情報を更新しました。'
+       flash.now[:notice] = 'アイテムを情報を更新しました。'
        redirect_to items_path
     else
       render :edit

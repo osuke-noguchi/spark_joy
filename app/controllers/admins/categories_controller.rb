@@ -1,5 +1,7 @@
 class Admins::CategoriesController < ApplicationController
- before_action :authenticate_admin!
+ before_action :authenticate_user!
+ before_action :set_category, only: [:update, :edit, :destroy]
+
  def index
      @categories = Category.all
      @category = Category.new
@@ -16,20 +18,17 @@ class Admins::CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def show
   end
 
   def update
-    @category = Category.find(params[:id])
     @category.update(category_params)
     redirect_to admins_categories_path
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     redirect_to admins_categories_path
   end
@@ -38,5 +37,9 @@ class Admins::CategoriesController < ApplicationController
 
   def category_params
       params.require(:category).permit(:category_name)
-    end
+  end
+
+  def set_category
+     @category = Category.find(params[:id])
+  end
 end
