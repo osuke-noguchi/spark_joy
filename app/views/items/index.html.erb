@@ -2,23 +2,24 @@
   <div class="item-index">
      <% if @items.empty? %>
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-5 col-md-5">
         <%= render "items/categories" %>
       </div>
-      <div class="col-md-7">
+      <div class="col-7 col-md-7">
         <div class="item-image-index">
           <div class="item-image">
-           <h1 class="message">アイテムが登録されていません</h1>
+           <div class="message"><h5>登録されているアイテムがないようです<br>メニューのアイテム登録から登録できます。</h5>
+           </div>
           </div>
         </div>
       </div>
     </div>
      <% else %>
     <div class="row">
-      <div class="col-5 col-md-5">
+      <div class="col-4 col-md-4">
         <%= render "items/categories" %>
       </div>
-      <div class="col-7 col-md-7">
+      <div class="col-8 col-md-8">
         <div class="item-image-index">
           <div class="item-image">
             <% @items.each do |item| %>

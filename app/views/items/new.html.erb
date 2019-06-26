@@ -1,38 +1,39 @@
 <div class="container">
   <div class="item-new">
     <div class="row">
-      <div class="col-6">
-        <div class="image-new">
+      <div class="col-md-6 col-12">
+        <div class="image-new" style="width: 18rem; height: 15rem">
            <% if @item.errors.any? %>
             画像を登録してください
             <% end %>
           <h4>アイテム画像を登録</h4>
           <%= form_for (@item) do |f| %>
           <div id="img_field" onClick="$('#file').click()" >
-           <%= f.attachment_field :image, class: "image", id: "file"%>
+           <%= f.attachment_field :image, id: "file", class: "image" %>
           </div>
-             <script type="text/javascript">
-              $(function() {
-                $('#file').after('<span></span>');
-                $('#file').change(function() {
-                  var file = $(this).prop('files')[0];
-                  if (! file.type.match('image.*')) {
-                    $(this).val('');
-                    $('span').html('');
-                    return;
-                  }
-                  var reader = new FileReader();
-                  reader.onload = function() {
-                    var img_src = $('<img>').attr('src', reader.result);
-                    $('span').html(img_src);
-                  }
-                  reader.readAsDataURL(file);
-                });
-               });
-             </script>
+          <script>
+            $(function(){
+              $('#file').change(function(e){
+                var file = e.target.files[0];
+                var reader = new FileReader();
+                if(file.type.indexOf("image") < 0){
+                  alert("画像ファイルを指定してください。");
+                  return false;
+                }
+                reader.onload = (function(file){
+                  return function(e){
+                    $("#img1").attr("src", e.target.result);
+                    $("#img1").attr("title", file.name);
+                  };
+                })(file);
+                reader.readAsDataURL(file);
+              });
+            });
+          </script>
+　　　　　<img id="img1" style="width:300px;height:300px;" />
          </div>
        </div>
-      <div class="col-6">
+      <div class="col-md-6 col-12">
         <div class="item-new-field">
           <table class="attr">
           <tr>

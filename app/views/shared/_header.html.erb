@@ -1,26 +1,42 @@
 <div class="container">
   <div class="row">
-   <nav class="navbar navbar-light bg-light fixed-top">
+   <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
     <% if user_signed_in? %>
-    <h5 class=" col-1 col-md-1 my-0 mr-md-auto font-weight-normal"><%= link_to "Spark Joy", items_path, :style=>"color:black;" %></h5>
-    <div class="col-3 col-md-3">
+    <h5 class="navbar-brand"><%= link_to "Spark Joy", items_path, :style=>"color:black;" %></h5>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="レスポンシブ・ナビゲーションバー">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse navbar-light bg-light" id="Navber">
+    <div class="navbar-nav form-inline">
      <%= form_tag('/items', method: 'get') do %>
       <%= label_tag :item_key, "" %>
       <%= text_field_tag :item_key %>
       <%= submit_tag('Go!') %><%= link_to 'Clear', items_path %>
       <% end %>
     </div>
-    <div class="col-2 col-md-2">
-     <%= link_to "アイテム登録", new_item_path, data: {"turbolinks" => false}, class: "btn btn-warning" %>
-     </div>
-     <nav class="col-3 col-md-3">
+    <li class="navbar-nav ml-5 ml-sm-50" style="font-size:15px;">
+     <%= link_to "アイテム登録", new_item_path, data: {"turbolinks" => false}, :style=>"color:red;" %>
+     </li>
+
+     <div class="navbar-nav dropdown col-3 col-md-3 mr-5">
+  <div class="btn-group">
+  <button type="button" class="btn btn-outline-{themecolor}.bg-{themecolor} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 　　　<%= link_to current_user.name, user_path(current_user.id) %>さん
-     </nav>
-      <nav class="col-2 col-md-2">
-       <%= link_to 'ログアウト', :destroy_user_session, method: :delete, class: "btn-outline-danger" %>
-      </nav>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item">
+        <%= link_to 'マイページ', user_path(current_user.id) %></a>
+        <a class="dropdown-item">
+       <%= link_to 'ログアウト', :destroy_user_session, method: :delete, class: "btn-outline-danger" %></a>
+      </div>
+    </div>
+  </div>
+</div>
     </nav>
-    <% else %>
+  </div>
+  <% else %>
+  <div class="row">
     <nav class="navbar navbar-light bg-light fixed-top">
     <h5 class=" col-1 col-md-1 my-0 mr-md-auto font-weight-normal"><%= link_to "Spark Joy", root_path, :style=>"color:black;" %></h5>
       <%= link_to "はじめる", new_user_registration_path, class: "btn btn-outline-primary" %>

@@ -9,6 +9,12 @@ class Admins::UsersController < ApplicationController
     else
       User.all
     end
+
+    if User.where(gender: 1) == 1
+         puts "女性"
+      else
+         puts "男性"
+      end
   end
 
   def show
