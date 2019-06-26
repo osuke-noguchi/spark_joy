@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
-   has_many :items, dependent: :destroy
-   validates :name, length: { maximum: 10 }
-
+  has_many :items, dependent: :destroy
+  validates :name, length: { maximum: 15 }
+  validates :age,  numericality: { greater_than_or_equel_to: 15 }
 end

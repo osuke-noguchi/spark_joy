@@ -22,7 +22,12 @@
                 <td><%= @user.id %></td>
                 <td><%= @user.name %></td>
                 <td><%= @user.age %></td>
-                <td><%= @user.gender %></td>
+                <td><% if @user.gender == 1 %>
+                  女性
+                  <% else %>
+                  男性
+                  <% end %>
+                </td>
                 <td><%= @user.items.count %>点</td>
                 <td><%= @user.email %></td>
                 <td><%= @user.created_at %></td>
